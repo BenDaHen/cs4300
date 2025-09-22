@@ -22,19 +22,3 @@ def strings():
 def booleans():
     boolean = True
     return boolean
-
-#Pytest for integers
-def test_integers():
-    assert integers() == 7
-
-#Pytest for floats
-def test_floats():
-    assert floats() == 12.2
-
-#Pytest for strings
-def test_strings():
-    assert strings() == "HelloWorld"
-
-#Pytest for booleans
-def test_booleans():
-    assert booleans() == True
