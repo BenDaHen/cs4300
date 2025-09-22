@@ -20,8 +20,14 @@ Task 3
 
 Task 4
 
+    Task 4 has a function that calculates the new price of something given the original price and the discount percentage. The pytest checks to make sure that the new discount is correctly calculated. 
+
 Task 5
 
     Task 5 has a function that creates a list of books, and then uses slicing to get the first 3 entries of the list. The pytest checks to make sure that these 3 entries are returned. 
 
-    
+    The second function in task 5 creates a dictionary to represent a student registry, and the pytest checks to make sure that the dictionary is correct. 
+
+Task 6
+
+    Task 6 has a function that determines the number of words in a file by splitting the file into individual words after reading it. A word count is updated for every word that is split off. The pytest checks to make sure that the correct word count was found. 
