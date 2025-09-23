@@ -31,3 +31,7 @@ Task 5
 Task 6
 
     Task 6 has a function that determines the number of words in a file by splitting the file into individual words after reading it. A word count is updated for every word that is split off. The pytest checks to make sure that the correct word count was found. 
+
+Task 7
+
+    Task 7 has a function that determines the result of the addition of two numpy matrices. The result is then printed and the pytest checks to make sure that the result is a match. 
