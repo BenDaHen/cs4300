@@ -31,13 +31,14 @@ ALLOWED_HOSTS = ['editor-benw-20.devedu.io']
 # Application definition
 
 INSTALLED_APPS = [
-    "bookings.apps.BookingsConfig",
+    'bookings.apps.BookingsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
