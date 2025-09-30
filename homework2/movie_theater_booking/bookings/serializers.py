@@ -4,19 +4,19 @@
 from rest_framework import serializers
 
 #Movie Serializer
-class MovieSerializer(serializers.HyperlinkedMovelSerializer):
+class MovieSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Movie
         fields = ['title', 'description', 'release date', 'duration']
 
 #Seat Serializer
-class SeatSerializer(serializers.HyperlinkedMovelSerializer):
+class SeatSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Seat
         fields = ['seat number', 'booking status']
 
 #Booking Serializer
-class BookingSerializer(serializers.HyperlinkedMovelSerializer):
+class BookingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Booking
         fields = ['movie', 'seat', 'user', 'booking date']

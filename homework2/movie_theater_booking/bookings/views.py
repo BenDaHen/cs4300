@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from rest_framework import viewsets
 
+from .models import Movie, Seat, Booking
+
 #from movie_theater_booking.bookings.serializers import MovieSerializer, SeatSerializer, BookingSerializer
 
 # Create your views here.
