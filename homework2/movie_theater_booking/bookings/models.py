@@ -12,13 +12,13 @@ class Movie(models.Model):
     movie_title = models.CharField(max_length=50)
 
     #Description
-    movie_description = models.CharField(max_length=500)
+    movie_description = models.TextField()
 
     #Release Date
-    movie_release_date = models.DateTimeField("date published")
+    movie_release_date = models.DateField()
 
     #Duration
-    movie_duration = models.CharField(max_length=5)
+    movie_duration = models.DurationField()
 
     #Print out Movie information
     def __str__(self):
@@ -31,10 +31,10 @@ class Movie(models.Model):
 #Seat: seat number, booking status
 class Seat(models.Model):
     #Seat Number
-    seat_number = models.CharField(max_length=3)
+    seat_number = models.CharField(max_length=3, unique=True)
 
     #Booking Status
-    booking_status = models.CharField(max_length=10)
+    booking_status = models.BooleanField(default=False) 
 
     #Print out Seat information
     def __str__(self):
