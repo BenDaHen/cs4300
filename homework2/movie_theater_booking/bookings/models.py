@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+#Add function to modify movies then test
+
 #Movie: title, description, release date, duration
 class Movie(models.Model):
     objects = models.Manager
