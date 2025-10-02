@@ -8,7 +8,7 @@ from .models import Movie, Seat, Booking
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Movie
-        fields = ['title', 'description', 'release date', 'duration']
+        fields = ['movie_title', 'movie_description', 'movie_release date', 'movie_duration']
 
 #Seat Serializer
 class SeatSerializer(serializers.HyperlinkedModelSerializer):
@@ -20,5 +20,5 @@ class SeatSerializer(serializers.HyperlinkedModelSerializer):
 class BookingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Booking
-        fields = ['movie', 'seat', 'user', 'booking date']
+        fields = ['movie', 'seat', 'user', 'booking_date']
 
