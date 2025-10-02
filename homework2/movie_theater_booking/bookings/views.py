@@ -11,6 +11,9 @@ def index(request):
 
 # Create your views here.
 
+#The views showcase each serializer, and through the serializers
+#are able to show the model data
+
 #Movie View
 class MovieViewSet(viewsets.ModelViewSet):
     """

@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-#Add function to modify movies then test
+#Models will act as backend database to store the information for each entry
 
 #Movie: title, description, release date, duration
 class Movie(models.Model):

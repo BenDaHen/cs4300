@@ -4,6 +4,9 @@
 from rest_framework import serializers
 from .models import Movie, Seat, Booking
 
+#The serializers allow the models to be edited through the 
+#server itself rather than just in the shell
+
 #Movie Serializer
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
