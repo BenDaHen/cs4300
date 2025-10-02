@@ -2,6 +2,7 @@
 
 #Imports
 from rest_framework import serializers
+from .models import Movie, Seat, Booking
 
 #Movie Serializer
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
