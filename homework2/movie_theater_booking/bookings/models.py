@@ -36,7 +36,7 @@ class Seat(models.Model):
     seat_number = models.IntegerField(unique=True)
 
     #Booking Status
-    booking_status = models.BooleanField(default=False) 
+    booking_status = models.BooleanField(default=False)
 
     #Print out Seat information
     def __str__(self):
@@ -45,21 +45,21 @@ class Seat(models.Model):
 
 #Booking: movie, seat, user, booking date
 class Booking(models.Model):
-    #Movie
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    #Book for which movie
+    booked_movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True, blank=True)
 
     #Seat
     seat = models.ForeignKey(Seat, on_delete=models.CASCADE, unique=True)
 
-    #User
-    user = models.CharField(max_length=50)
+    #Pick the date to book for
+    booked_date = models.DateField(null=True, blank=True)
 
-    #Booking Date
-    booking_date = models.DateField()
+    #Who the seat is booked by
+    booked_user = models.CharField(max_length=20, null=True, blank=True)
 
     #Print out Booking information
     def __str__(self):
-        return f'''Movie: ({self.movie})\n
+        return f'''Movie: ({self.booked_movie})\n
         Seat: ({self.seat})\n
-        User: ({self.user})\n
-        Booking Date: ({self.booking_date})'''
+        Date: ({self.booked_date})\n
+        User: ({self.booked_user})'''

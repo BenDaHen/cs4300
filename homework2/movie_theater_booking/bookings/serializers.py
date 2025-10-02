@@ -23,5 +23,5 @@ class SeatSerializer(serializers.ModelSerializer):
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ['movie', 'seat', 'user', 'booking_date']
+        fields = ['booked_movie', 'seat', 'booked_date', 'booked_user']
 

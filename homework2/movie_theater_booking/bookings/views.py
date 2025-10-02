@@ -32,5 +32,5 @@ class BookingViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows bookings to be viewed or edited.
     """
-    queryset = Booking.objects.all().order_by('-booking_date')
+    queryset = Booking.objects.all().order_by('-booked_movie')
     serializer_class = BookingSerializer
