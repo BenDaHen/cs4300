@@ -4,6 +4,8 @@ from django.db import models
 
 #Models will act as backend database to store the information for each entry
 
+#By running makemigrations and migrate, the database will be saved
+
 #Movie: title, description, release date, duration
 class Movie(models.Model):
     objects = models.Manager
@@ -31,7 +33,7 @@ class Movie(models.Model):
 #Seat: seat number, booking status
 class Seat(models.Model):
     #Seat Number
-    seat_number = models.CharField(max_length=3, unique=True)
+    seat_number = models.IntegerField(unique=True)
 
     #Booking Status
     booking_status = models.BooleanField(default=False) 
@@ -47,13 +49,13 @@ class Booking(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
 
     #Seat
-    seat = models.ForeignKey(Seat, on_delete=models.CASCADE)
+    seat = models.ForeignKey(Seat, on_delete=models.CASCADE, unique=True)
 
     #User
     user = models.CharField(max_length=50)
 
     #Booking Date
-    booking_date = models.DateTimeField("date booked")
+    booking_date = models.DateField()
 
     #Print out Booking information
     def __str__(self):
