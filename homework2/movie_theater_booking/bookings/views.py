@@ -5,10 +5,6 @@ from rest_framework import viewsets
 from .models import Movie, Seat, Booking
 from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
 
-def index(request):
-    return HttpResponse("Booking Page")
-
-
 # Create your views here.
 
 #The views showcase each serializer, and through the serializers

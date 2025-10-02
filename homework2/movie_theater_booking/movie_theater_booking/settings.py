@@ -48,6 +48,10 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': []
 }
 
+#Fix URL Links on the server
+USE_X_FORWARDED_HOST = True
+FORCE_SCRIPT_NAME = '/proxy/8000'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -15,6 +15,5 @@ router.register(r'bookings', views.BookingViewSet, basename='booking')
 #URL Patterns
 #These determine what is visible at each URL path
 urlpatterns = [
-    path('', views.index, name='index'),
     path('api/', include(router.urls)),
 ]
