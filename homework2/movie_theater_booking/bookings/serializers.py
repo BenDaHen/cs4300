@@ -11,17 +11,17 @@ from .models import Movie, Seat, Booking
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['movie_title', 'movie_description', 'movie_release_date', 'movie_duration']
+        fields = ['id', 'movie_title', 'movie_description', 'movie_release_date', 'movie_duration']
 
 #Seat Serializer
 class SeatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seat
-        fields = ['seat_number', 'booking_status']
+        fields = ['id', 'seat_number', 'booking_status']
 
 #Booking Serializer
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ['booked_movie', 'seat', 'booked_date', 'booked_user']
+        fields = ['id', 'booked_movie', 'seat', 'booked_date', 'booked_user']
 

@@ -20,7 +20,7 @@ from django.urls import include, path
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/bookings/api', permanent=False)),
+    path('', RedirectView.as_view(url='/bookings/', permanent=False)),
     path("bookings/", include("bookings.urls")),
     path('admin/', admin.site.urls),
 ]

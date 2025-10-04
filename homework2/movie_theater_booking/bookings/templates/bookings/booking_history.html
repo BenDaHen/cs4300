@@ -1,15 +1,94 @@
-{% extends 'booking/base.html' %}
-{% block title %}Booking History{% endblock%}
-{% block content %}
-<h2>Booked Seats</h2>
-<ul class="list-group">
-    {% for seat in seats %}
-        <li class="list-group-item">
-            <h5>{{ seat.seat_number }}</h5>
-            <p>{{ seat.booking_status }}</p>
-            <a> href="{ url 'book_seat' movie.id %}" class="btn btn-primary">
-                Book Now</a> 
-        </li>
-        {% endfor %}
-</ul>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - Movie Theater Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Movie Theater</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'movies' %}">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'bookings' %}">My Bookings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bookings Section -->
+    <div class="container my-5">
+        <h1 class="mb-4">My Bookings</h1>
+        
+        {% if bookings %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Movie</th>
+                            <th>Seat Number</th>
+                            <th>Date</th>
+                            <th>Booked By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                        <tr>
+                            <td>
+                                {% if booking.booked_movie %}
+                                    {{ booking.booked_movie.movie_title }}
+                                {% else %}
+                                    <em>No movie selected</em>
+                                {% endif %}
+                            </td>
+                            <td>Seat {{ booking.seat.seat_number }}</td>
+                            <td>
+                                {% if booking.booked_date %}
+                                    {{ booking.booked_date }}
+                                {% else %}
+                                    <em>No date set</em>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if booking.booked_user %}
+                                    {{ booking.booked_user }}
+                                {% else %}
+                                    <em>Anonymous</em>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <p class="mb-0">You don't have any bookings yet. <a href="{% url 'movies' %}" class="alert-link">Browse movies</a> to make your first booking!</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Movie Theater Booking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

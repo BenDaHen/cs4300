@@ -1,15 +1,52 @@
-{% extends 'booking/base.html' %}
-{% block title %}Seat Booking{% endblock%}
+{% extends 'bookings/base.html' %}
+
+{% block title %}Seat Booking{% endblock %}
+
 {% block content %}
-<h2>Available Seats</h2>
-<ul class="list-group">
-    {% for seat in seats %}
-        <li class="list-group-item">
-            <h5>{{ seat.seat_number }}</h5>
-            <p>{{ seat.booking_status }}</p>
-            <a> href="{ url 'book_seat' movie.id %}" class="btn btn-primary">
-                Book Now</a> 
-        </li>
+<h2 class="mb-4">Book Seats for {{ movie.movie_title }}</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">{{ movie.movie_title }}</h5>
+        <p class="card-text">{{ movie.movie_description }}</p>
+        <p class="text-muted">
+            <small>
+                <strong>Release Date:</strong> {{ movie.movie_release_date }}<br>
+                <strong>Duration:</strong> {{ movie.movie_duration }}
+            </small>
+        </p>
+    </div>
+</div>
+
+<h3 class="mb-3">Available Seats</h3>
+
+{% if seats %}
+    <div class="row">
+        {% for seat in seats %}
+        <div class="col-md-3 col-sm-4 col-6 mb-3">
+            <div class="card {% if seat.booking_status %}bg-secondary{% else %}bg-light{% endif %}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Seat {{ seat.seat_number }}</h5>
+                    {% if seat.booking_status %}
+                        <span class="badge bg-danger">Booked</span>
+                    {% else %}
+                        <span class="badge bg-success">Available</span>
+                        <div class="mt-2">
+                            <a href="{% url 'confirm-booking' movie.id seat.id %}" class="btn btn-primary btn-sm">Book Now</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
         {% endfor %}
-</ul>
+    </div>
+{% else %}
+    <div class="alert alert-warning">
+        <p class="mb-0">No seats available for this movie.</p>
+    </div>
+{% endif %}
+
+<div class="mt-4">
+    <a href="{% url 'movies' %}" class="btn btn-secondary">Back to Movies</a>
+</div>
 {% endblock %}

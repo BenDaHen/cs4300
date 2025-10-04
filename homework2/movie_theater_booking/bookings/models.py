@@ -8,7 +8,7 @@ from django.db import models
 
 #Movie: title, description, release date, duration
 class Movie(models.Model):
-    objects = models.Manager
+    objects = models.Manager()
 
     #Title
     movie_title = models.CharField(max_length=50)
