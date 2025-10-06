@@ -51,9 +51,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': []
 }
 
-#Fix URL Links on the server
-USE_X_FORWARDED_HOST = True
-FORCE_SCRIPT_NAME = '/proxy/8000'
+#Fix URL Links on the server, needs to be off for the app to work
+#USE_X_FORWARDED_HOST = True
+#FORCE_SCRIPT_NAME = '/proxy/8000'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
