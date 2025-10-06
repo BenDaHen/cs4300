@@ -6,6 +6,8 @@ from rest_framework import viewsets
 from .models import Movie, Seat, Booking
 from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
 
+import datetime
+
 # Create your views here.
 
 #The views showcase each serializer, and through the serializers
@@ -49,6 +51,7 @@ def confirm_booking_view(request, movie_id, seat_id):
     booking = Booking.objects.create(
         booked_movie=movie,
         seat=seat,
+        booked_date = datetime.date.today(),
         booked_user=request.user.username if request.user.is_authenticated else 'Guest'
     )
     

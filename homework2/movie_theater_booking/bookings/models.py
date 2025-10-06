@@ -49,7 +49,7 @@ class Booking(models.Model):
     booked_movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True, blank=True)
 
     #Seat
-    seat = models.ForeignKey(Seat, on_delete=models.CASCADE, unique=True)
+    seat = models.ForeignKey(Seat, on_delete=models.CASCADE)
 
     #Pick the date to book for
     booked_date = models.DateField(null=True, blank=True)

@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-)ytr3v8o5j2=!hdx_v7@gtddwqddihh2owrmwztqxe+5+@t!(v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['editor-benw-20.devedu.io']
+ALLOWED_HOSTS = [
+    'editor-benw-20.devedu.io',
+    'app-benw-20.devedu.io'
+    ]
 
 
 # Application definition
